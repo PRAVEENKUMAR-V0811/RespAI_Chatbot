@@ -5,6 +5,10 @@
 
 **RespAI** is a context-aware conversational chatbot built using Streamlit, LangChain, and the DeepSeek language model via OpenRouter.
 
+## 🚀 Live Demo
+
+Check out the live demo here: [RespAI Chatbot](https://respai.streamlit.app/)
+
 ## ✨ Features
 
 - Conversational memory with contextual understanding
