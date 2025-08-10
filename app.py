@@ -2,6 +2,7 @@ from datetime import datetime
 import streamlit as st
 from Chatbot import get_response
 from openai import RateLimitError
+import traceback
 
 st.set_page_config(
     page_title="RespAI",
@@ -72,8 +73,10 @@ if prompt := st.chat_input("Say what's on your mind !"):
             except RateLimitError:
                 st.warning("⚠️ We're currently experiencing high demand. Please wait a few seconds and try again.")
                 response = "Sorry, I’m temporarily unavailable due to high traffic. Please try again shortly."
-            except Exception:
+            except Exception as e:
                 st.error("⚠️ An unexpected error occurred. Please try again later.")
+                st.write("**Debug info:**", str(e))  # Show error message
+                st.code(traceback.format_exc())       # Show full traceback in UI
                 response = "An error occurred while processing your request."
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
