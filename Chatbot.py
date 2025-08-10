@@ -11,7 +11,7 @@ os.environ["OPENROUTER_API_KEY"] = st.secrets["openrouter_api_key"]
 llm = ChatOpenAI(
     api_key=os.environ["OPENROUTER_API_KEY"],
     base_url="https://openrouter.ai/api/v1",
-    model="deepseek/deepseek-chat",
+    model="deepseek/deepseek-chat:free",
     temperature=0.3
 )
 
